@@ -1,0 +1,14 @@
+a=input("enter food names\n")
+b=a.split(",")
+# b.reverse()
+# print(b)
+# c=b[::-1]
+# print(c)
+n=len(b)-1
+if n%2!=0:
+ for i in range((n//2)+1):
+    b[i],b[-i-1]=b[-i-1],b[i]
+elif n%2==0:
+    for i in range((n//2)):
+        b[i], b[-i - 1] = b[-i - 1], b[i]
+print(b)

@@ -1,0 +1,58 @@
+import random
+print("WELCOME TO GUESS THE NUMBER GAME")
+while True:
+    player_1 = input("ENTER PLAYER NO.1 NAME:\n")
+    player_2 = input("ENTER PLAYER NO.2 NAME:\n")
+    print("THIS IS", player_1, "'S chance")
+    a = int(input("ENTER LOWER LIMIT OF RANGE FOR GUSSESING NUMBER\n"))
+    b = int(input("ENTER HIGHER LIMIT OF RANGE FOR GUSSESING NUMBER\n"))
+    rnumber = random.randint(a, b)
+    PLAYER1_chance = 0
+    while True:
+        print("CHOOSE A NUMBER FROM", a, "TO", b)
+        choose = int(input())
+        if choose not in range(a,b+1):
+            raise ValueError("EITHER YOU ENTER A NUMBER OUT OF RANGE OR YOU DIDN'T ENTER NUMBER")
+        PLAYER1_chance += 1
+        if choose > rnumber:
+            print("OOPS YOU ENTER BIGGER NUMBER,TYPE SMALLER NUMBER")
+        elif choose < rnumber:
+            print("OOPS YOU ENTERED A SMALLER NUMBER,TYPE BIGGER NUMBER")
+        elif choose == rnumber:
+            print("YOU GUESS THE CORRECT NUMBER")
+            break
+    print(player_1, "GUESS THE NUMBER IN", PLAYER1_chance, "CHANCES\n\n")
+
+    print("THIS IS", player_2, "'S chance")
+    a = int(input("ENTER LOWER LIMIT OF RANGE FOR GUSSESING NUMBER\n"))
+    b = int(input("ENTER HIGHER LIMIT OF RANGE FOR GUSSESING NUMBER\n"))
+    rnumber = random.randint(a, b)
+    PLAYER2_chance = 0
+    while True:
+        print("CHOOSE A NUMBER FROM", a, "TO", b)
+        choose = int(input())
+        if choose not in range(a,b+1):
+            raise ValueError("EITHER YOU ENTER A NUMBER OUT OF RANGE OR YOU DIDN'T ENTER NUMBER")
+        PLAYER2_chance += 1
+        if choose > rnumber:
+            print("OOPS YOU ENTER BIGGER NUMBER,TYPE SMALLER NUMBER")
+        elif choose < rnumber:
+            print("OOPS YOU ENTERED A SMALLER NUMBER,TYPE BIGGER NUMBER")
+        elif choose == rnumber:
+            print("YOU GUESS THE CORRECT NUMBER")
+            break
+    print(player_2, "GUESS THE NUMBER IN", PLAYER2_chance, "CHANCES\n")
+
+    if PLAYER1_chance < PLAYER2_chance:
+        print(player_1, "WON THIS GAME\n\n")
+    elif PLAYER1_chance > PLAYER2_chance:
+        print(player_2, "WON THIS GAME\n\n")
+    elif PLAYER1_chance==PLAYER2_chance:
+        print("MATCH DRAW....\n\n")
+
+    k=input("IF YOU WANT TO PLAY AGAIN PRESS \"Y\" ELSE PRESS \"N\" FOR EXIT GAME\n")
+    if k=="Y":
+        continue
+    elif k=="N":
+        break
+

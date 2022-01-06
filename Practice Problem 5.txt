@@ -1,0 +1,21 @@
+a=input("ENTER THE LIST OF NUMBERS WHOSE NEXT PALINDROM YOU WANT TO KNOW\n")
+b=a.split(",")
+m=[]
+for i in b:
+   if int(i)<10:
+       # if int(i)!=int:
+       #      raise Exception("check numbers again")
+       m.append(int(i))
+   elif int(i)>10:
+       while True:
+           if str(i)==str(i)[::-1]:
+               m.append(int(i))
+               break
+           else:
+                i=int(i)+1
+print(m)
+
+
+
+
+

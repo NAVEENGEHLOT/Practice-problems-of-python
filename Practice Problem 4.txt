@@ -1,9 +1,0 @@
-a=int(input("HOW MANY TIMES YOU WANT TO ENTER NUMBER AND FIND ITS NEXT PALINDROM\n"))
-for i in range(a):
-    b=int(input("ENTER NUMBER\n"))
-    while True:
-        if str(b)== str(b)[::-1]:
-            print(b)
-            break
-        else:
-            b+=1

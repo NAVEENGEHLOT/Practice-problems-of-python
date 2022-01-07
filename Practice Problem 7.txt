@@ -9,7 +9,7 @@
 # 
 # Input:
 # Please input your query string
-# 
+
 # “Python is”
 # 
 # Output:

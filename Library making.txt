@@ -1,0 +1,72 @@
+'''Library making using class'''
+
+
+class library:
+
+    def _init_(self,list_of_books,library_name):
+        self.list_of_books=list_of_books
+        self.library_name=library_name
+        self.dict={}
+
+    def booksoflibrary(self):
+        for b in self.list_of_books:
+            print(b)
+
+    def lendbook(self):
+        a=input("ENTER BOOK NAME YOU WANT TO LEND:\n")
+        b=input("ENTER YOUR NAME:\n")
+        if a in self.list_of_books:
+            self.list_of_books.remove(a)
+            self.dict[a]=b
+            print("PROCESS FINISHED.... YOU LENT",a,"BOOK")
+        elif a in self.dict.keys():
+            print(self.dict[a],"ALREADY LENT THIS BOOK,SORRY")
+        else:
+            print("THIS BOOK IS NOT IN LIBRARY.PLEASE CHECK BOOK NAME AGAIN")
+
+    def addbook(self):
+        abname=input("WELCOME SIR..\nENTER BOOK NAME YOU WANT TO ADD\n")
+        self.list_of_books.append(abname)
+        print("PROCESS FINISHED...BOOK IS ADDED IN LIBRARY")
+
+    def returnbook(self):
+        c=input("ENTER YOUR NAME\n")
+        d=input("ENTER BOOK NAME THAT YOU WANT TO RETURN\n")
+        if d in  self.dict.keys() and c in self.dict.values():
+            del self.dict[d]
+            self.list_of_books.append(d)
+            print("PROCESS FINISHED...BOOK HAS RETURNED")
+        else:
+            print("EITHER YOU DID NOT LEND THIS BOOK OR YOU ENTERED WRONG BOOK NAME")
+
+Naveen=library(["Python","Java","C++","C","Oop for python"],"COMPUTER SCIENCE LIBRARY")
+Himanshu=library(["Machine tools","Newer machining methods","Thermodynamics"],"MECHANICAL ENGINEERING LIBRARY")
+
+while True:
+    o = input("ENTER LIBRARY:\n")
+    k=o.upper()
+    j = input("TYPE \"S\" TO SEE ALL BOOKS OF LIBRARY\nTYPE \"L\" FOR LEND BOOK\nTYPE \"A\" TO ADD BOOK IN LIBRARY\nTYPE \"R\" TO RETURN BOOK\n")
+    l=j.capitalize()
+    if k == "COMPUTER SCIENCE LIBRARY" and l == "S":
+        Naveen.booksoflibrary()
+    elif k == "COMPUTER SCIENCE LIBRARY" and l == "L":
+        Naveen.lendbook()
+    elif k == "COMPUTER SCIENCE LIBRARY" and l == "A":
+         Naveen.addbook()
+    elif k == "COMPUTER SCIENCE LIBRARY" and l == "R":
+         Naveen.returnbook()
+    elif k == "MECHANICAL ENGINEERING LIBRARY"and l == "S":
+         Himanshu.booksoflibrary()
+    elif k == "MECHANICAL ENGINEERING LIBRARY" and l == "L":
+        Himanshu.lendbook()
+    elif k == "MECHANICAL ENGINEERING LIBRARY"and l == "A":
+         Himanshu.addbook()
+    elif k == "MECHANICAL ENGINEERING LIBRARY" and l == "R":
+        Himanshu.returnbook()
+
+    l = input("PRESS \"Y\" FOR CONTINUE AND PRESS \"N\" FOR EXIT\n")
+    l.capitalize()
+    if l == "Y":
+        continue
+    elif l == "N":
+        break

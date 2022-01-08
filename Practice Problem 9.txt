@@ -1,0 +1,19 @@
+''' enter number of friend and then enter friends names and jumble their surnames'''
+
+
+import random
+n=int(input("enter the number of friends\n"))
+m=input("enter the name of your friends\n")
+b=m.split(",")
+surname=[]
+firstname=[]
+for i in b:
+    k=i.split(" ",1)[1]
+    surname.append(k)
+    l=i.split(" ")[0]
+    firstname.append(l)
+for fname in firstname:
+    o = random.randint(0,n-1)
+    print(fname,surname[o])
+    surname.remove(surname[o])
+    n-=1
